@@ -1,0 +1,2 @@
+# Netlify SPA fallback — every route serves index.html so deep links & refreshes work
+/*  /index.html  200

@@ -1,0 +1,74 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-8);
+  padding: 13px 26px;
+  border-radius: var(--radius-button);
+  font-size: var(--text-body);
+  font-weight: var(--fw-semibold);
+  line-height: 1;
+  letter-spacing: -0.01em;
+  cursor: pointer;
+  transition: transform var(--dur-fast) var(--ease-out),
+    background-color var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out);
+  white-space: nowrap;
+  text-align: center;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+/* Primary filled — the only warm high-saturation action */
+.coral {
+  background: var(--color-coral-pulse);
+  color: var(--color-paper-white);
+}
+.coral:hover {
+  background: #f4552b;
+}
+
+/* Ghost on light surfaces */
+.ghost {
+  background: transparent;
+  color: var(--color-canopy-green);
+  border: 1px solid var(--color-canopy-green);
+}
+.ghost:hover {
+  background: var(--color-canopy-green);
+  color: var(--color-paper-white);
+}
+
+/* Ghost on dark surfaces */
+.ghost-dark {
+  background: transparent;
+  color: var(--color-paper-white);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+}
+.ghost-dark:hover {
+  background: var(--color-paper-white);
+  color: var(--color-canopy-green);
+  border-color: var(--color-paper-white);
+}
+
+/* Compact outlined nav CTA */
+.nav {
+  padding: 9px 20px;
+  font-size: var(--text-body-sm);
+  font-weight: var(--fw-semibold);
+  background: var(--color-canopy-green);
+  color: var(--color-paper-white);
+  border: 1px solid var(--color-canopy-green);
+}
+.nav:hover {
+  background: var(--color-coral-pulse);
+  border-color: var(--color-coral-pulse);
+  color: var(--color-paper-white);
+}

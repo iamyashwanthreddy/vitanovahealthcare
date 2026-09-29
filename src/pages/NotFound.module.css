@@ -1,0 +1,33 @@
+.wrap {
+  text-align: center;
+  padding-block: clamp(80px, 14vw, 160px);
+}
+
+.code {
+  display: block;
+  font-size: clamp(4rem, 14vw, 8rem);
+  font-weight: var(--fw-bold);
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: var(--color-leaf-bright);
+}
+
+.title {
+  margin-top: var(--space-16);
+}
+
+.body {
+  margin-top: var(--space-16);
+  margin-inline: auto;
+  max-width: 44ch;
+  color: var(--color-graphite);
+  font-size: var(--text-body-lg);
+}
+
+.actions {
+  margin-top: var(--space-32);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-12);
+  justify-content: center;
+}

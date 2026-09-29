@@ -1,0 +1,120 @@
+/* ============================================================
+   Vitanova Health Care — Design Tokens
+   Derived from the "Chat for impact" style reference (DESIGN.md).
+   Forest-green + pastel-room healthcare system, single DM Sans voice.
+   ============================================================ */
+
+:root {
+  /* -------- Brand / Core Colors -------- */
+  --color-canopy-green: #0a3922;
+  --color-coral-pulse: #ff643b;
+  --color-indigo-bloom: #460095;
+  --color-leaf-bright: #1dbf73;
+  --color-deep-teal: #003642;
+  --color-orchid-tint: #f3b3fe;
+  --color-sky-signal: #00b4dc;
+  --color-aubergine: #47264c;
+
+  /* -------- Neutrals -------- */
+  --color-ink-black: #000000;
+  --color-paper-white: #ffffff;
+  --color-ash: #a6a6a6;
+  --color-slate: #7a7a7a;
+  --color-graphite: #3d3d3d;
+  --color-charcoal: #333333;
+  --color-frost-gray: #e0e0e0;
+  --color-cloud-gray: #f2f2f2;
+
+  /* -------- Pastel Washes (feature-card rotation) -------- */
+  --color-lavender-mist: #eee2ff;
+  --color-mint-wash: #d2f2e3;
+  --color-sky-wash: #ccf0f8;
+  --color-sage-wash: #e4f7ee;
+  --color-lilac-wash: #fdf0ff;
+  --color-peach-wash: #ffede8;
+  --color-cream: #faf7e8;
+  --color-sand: #f4ece9;
+
+  /* -------- Semantic aliases -------- */
+  --text-primary: #000000;
+  --text-secondary: #3d3d3d;
+  --text-meta: #7a7a7a;
+  --text-on-dark: #ffffff;
+  --text-on-dark-muted: #d2f2e3;
+  --surface-page: #eee2ff;
+  --surface-card: #ffffff;
+  --surface-dark: #0a3922;
+  --border-hairline: #e0e0e0;
+  --border-mid: #a6a6a6;
+
+  /* -------- Typography -------- */
+  --font-sans: 'DM Sans', ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  --text-caption: 0.75rem;    /* 12 */
+  --text-body-sm: 0.875rem;   /* 14 */
+  --text-body: 1rem;          /* 16 */
+  --text-body-lg: 1.125rem;   /* 18 */
+  --text-subheading: 1.25rem; /* 20 */
+  --text-heading-sm: 1.5rem;  /* 24 */
+  --text-heading: 2rem;       /* 32 */
+  --text-heading-lg: 3rem;    /* 48 */
+  --text-display: 4.5rem;     /* 72 */
+  --text-display-xl: 7.25rem; /* 116 */
+
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+
+  /* -------- Spacing (4px base) -------- */
+  --space-4: 4px;
+  --space-8: 8px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-20: 20px;
+  --space-24: 24px;
+  --space-32: 32px;
+  --space-40: 40px;
+  --space-48: 48px;
+  --space-56: 56px;
+  --space-64: 64px;
+  --space-80: 80px;
+  --space-120: 120px;
+
+  /* -------- Radii -------- */
+  --radius-icon: 8px;
+  --radius-card-sm: 16px;
+  --radius-card: 24px;
+  --radius-button: 40px;
+  --radius-pill: 9999px;
+
+  /* -------- Layout -------- */
+  --page-max: 1280px;
+  --page-gutter: 80px;
+  --section-gap: 96px;
+
+  /* -------- Elevation (used sparingly) -------- */
+  --shadow-subtle: rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+  --shadow-card: 0 24px 60px -32px rgba(10, 57, 34, 0.28);
+
+  /* -------- Motion -------- */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-fast: 160ms;
+  --dur-base: 300ms;
+  --dur-slow: 600ms;
+}
+
+@media (max-width: 900px) {
+  :root {
+    --page-gutter: 40px;
+    --section-gap: 72px;
+  }
+}
+
+@media (max-width: 600px) {
+  :root {
+    --page-gutter: 20px;
+    --section-gap: 56px;
+  }
+}

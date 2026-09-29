@@ -1,0 +1,37 @@
+.list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-16);
+}
+
+.list[data-cols='multi'] {
+  gap: var(--space-16) var(--space-32);
+}
+
+.item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-12);
+  font-size: var(--text-body-lg);
+  line-height: 1.45;
+  color: var(--color-graphite);
+}
+
+.check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  margin-top: 2px;
+  border-radius: var(--radius-pill);
+  background: var(--color-mint-wash);
+  color: var(--color-canopy-green);
+}
+
+@media (min-width: 720px) {
+  .list[data-cols='multi'] {
+    grid-template-columns: repeat(var(--cols, 2), minmax(0, 1fr));
+  }
+}
