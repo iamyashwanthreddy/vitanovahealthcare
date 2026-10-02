@@ -52,11 +52,6 @@ export default function Footer() {
 
         <div className={styles.contactCol}>
           <h3 className={styles.colTitle}>Get in touch</h3>
-          <address className={styles.address}>
-            {contact.addressLines.map((line) => (
-              <span key={line}>{line}</span>
-            ))}
-          </address>
           <ul className={styles.contactList}>
             {contact.phones.map((p) => (
               <li key={p.number}>
@@ -75,7 +70,6 @@ export default function Footer() {
         <p>
           © {year} {brand.name}. All rights reserved.
         </p>
-        <p className={styles.region}>{contact.region}</p>
       </div>
     </footer>
   );

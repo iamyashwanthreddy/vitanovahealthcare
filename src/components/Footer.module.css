@@ -21,12 +21,12 @@
   align-items: center;
   justify-content: center;
   background: var(--color-paper-white);
-  padding: 14px 20px;
+  padding: 16px 24px;
   border-radius: var(--radius-card-sm);
 }
 
 .logoChip img {
-  height: 46px;
+  height: 60px;
   width: auto;
 }
 
@@ -87,17 +87,6 @@
   color: var(--color-paper-white);
 }
 
-.address {
-  font-style: normal;
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  color: rgba(255, 255, 255, 0.85);
-  font-size: var(--text-body);
-  line-height: 1.5;
-  margin-bottom: var(--space-24);
-}
-
 .contactMeta {
   margin-left: var(--space-8);
   font-size: var(--text-caption);
@@ -110,16 +99,11 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-12);
-  justify-content: space-between;
   align-items: center;
   padding-block: var(--space-32);
   border-top: 1px solid rgba(255, 255, 255, 0.14);
   font-size: var(--text-body-sm);
   color: rgba(255, 255, 255, 0.65);
-}
-
-.region {
-  color: rgba(255, 255, 255, 0.5);
 }
 
 @media (min-width: 700px) {
@@ -129,6 +113,9 @@
   .brandCol {
     grid-column: 1 / -1;
   }
+  .logoChip img {
+    height: 68px;
+  }
 }
 
 @media (min-width: 1000px) {
@@ -137,5 +124,8 @@
   }
   .brandCol {
     grid-column: auto;
+  }
+  .logoChip img {
+    height: 76px;
   }
 }

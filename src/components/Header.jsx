@@ -123,7 +123,7 @@ export default function Header() {
         </nav>
 
         <div className={styles.actions}>
-          <Button to="/application" variant="nav" className={styles.navCta}>
+          <Button to="/careers" variant="nav" className={styles.navCta}>
             Apply Here
           </Button>
           <button
@@ -214,7 +214,7 @@ export default function Header() {
             )}
           </ul>
         </nav>
-        <Button to="/application" variant="coral" className={styles.mobileCta}>
+        <Button to="/careers" variant="coral" className={styles.mobileCta}>
           Apply Here
         </Button>
       </aside>

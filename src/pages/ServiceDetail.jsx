@@ -67,7 +67,7 @@ export default function ServiceDetail() {
                 <h3 style={{ color: tone.ink }}>Schedule online</h3>
                 <p>It&rsquo;s easy, fast and secure. Apply today and we&rsquo;ll be in touch.</p>
               </div>
-              <Link to="/application" className={styles.calloutBtn}>
+              <Link to="/careers" className={styles.calloutBtn}>
                 Apply Here
                 <Icon name="arrow" size={18} />
               </Link>

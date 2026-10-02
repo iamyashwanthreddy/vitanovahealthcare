@@ -7,7 +7,7 @@ import styles from './CtaBand.module.css';
 export default function CtaBand({
   title = 'Ready to talk about care?',
   body = 'Whether you are looking for support for a loved one or joining our team, we would love to hear from you. Scheduling is easy, fast and secure.',
-  primary = { label: 'Apply Here', to: '/application' },
+  primary = { label: 'Apply Here', to: '/careers' },
   secondary = { label: 'Contact Us', to: '/contact' },
 }) {
   return (

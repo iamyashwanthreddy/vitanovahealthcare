@@ -7,7 +7,7 @@
 }
 
 .scrolled {
-  box-shadow: 0 1px 0 var(--color-frost-gray), 0 10px 30px -24px rgba(10, 57, 34, 0.5);
+  box-shadow: 0 1px 0 var(--color-frost-gray), 0 10px 30px -24px rgba(36, 31, 94, 0.5);
 }
 
 .bar {
@@ -25,7 +25,7 @@
 }
 
 .logo {
-  height: 52px;
+  height: 68px;
   width: auto;
   object-fit: contain;
 }
@@ -185,7 +185,7 @@
   position: fixed;
   inset: 0;
   top: 0;
-  background: rgba(10, 57, 34, 0.4);
+  background: rgba(36, 31, 94, 0.4);
   opacity: 0;
   visibility: hidden;
   transition: opacity var(--dur-base) var(--ease-out), visibility var(--dur-base);
@@ -205,7 +205,7 @@
   width: min(88vw, 360px);
   background: var(--color-paper-white);
   z-index: 95;
-  padding: 96px var(--space-24) var(--space-32);
+  padding: 88px var(--space-24) var(--space-32);
   display: flex;
   flex-direction: column;
   gap: var(--space-24);
@@ -282,6 +282,15 @@
 }
 
 /* -------- Breakpoints -------- */
+@media (min-width: 700px) {
+  .bar {
+    min-height: 92px;
+  }
+  .logo {
+    height: 76px;
+  }
+}
+
 @media (min-width: 1000px) {
   .desktopNav {
     display: block;
@@ -292,7 +301,10 @@
   .burger {
     display: none;
   }
+  .bar {
+    min-height: 108px;
+  }
   .logo {
-    height: 56px;
+    height: 92px;
   }
 }

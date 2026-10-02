@@ -39,21 +39,6 @@
   margin-bottom: var(--space-8);
 }
 
-.address {
-  font-style: normal;
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  color: var(--color-graphite);
-  line-height: 1.5;
-}
-
-.region {
-  margin-top: var(--space-8);
-  color: var(--color-slate);
-  font-size: var(--text-body-sm);
-}
-
 .contactList {
   display: flex;
   flex-direction: column;
@@ -109,41 +94,6 @@
   border: 1px solid var(--border-hairline);
   border-radius: var(--radius-card);
   padding: clamp(24px, 4vw, 40px);
-}
-
-/* Map */
-.mapWrap {
-  position: relative;
-  border-radius: var(--radius-card);
-  overflow: hidden;
-  background: var(--color-cloud-gray);
-}
-
-.map {
-  display: block;
-  width: 100%;
-  height: 420px;
-  border: 0;
-  filter: saturate(1.05);
-}
-
-.mapLink {
-  position: absolute;
-  bottom: var(--space-16);
-  right: var(--space-16);
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-8);
-  padding: 10px 18px;
-  border-radius: var(--radius-button);
-  background: var(--color-paper-white);
-  color: var(--color-canopy-green);
-  font-size: var(--text-body-sm);
-  font-weight: var(--fw-semibold);
-  box-shadow: var(--shadow-card);
-}
-.mapLink:hover {
-  color: var(--color-coral-pulse);
 }
 
 @media (min-width: 900px) {

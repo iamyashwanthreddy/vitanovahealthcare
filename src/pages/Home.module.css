@@ -24,7 +24,7 @@
   height: 460px;
   top: -160px;
   right: -100px;
-  background: radial-gradient(circle, rgba(29, 191, 115, 0.4), transparent 70%);
+  background: radial-gradient(circle, rgba(20, 184, 179, 0.4), transparent 70%);
 }
 .hero::after {
   width: 380px;

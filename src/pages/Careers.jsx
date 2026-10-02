@@ -1,27 +1,27 @@
 import PageHero from '../components/PageHero.jsx';
-import EnquiryForm from '../components/EnquiryForm.jsx';
+import CareerApplicationForm from '../components/CareerApplicationForm.jsx';
 import Icon from '../components/Icon.jsx';
 import useDocumentMeta from '../hooks/useDocumentMeta.js';
 import { applicationSteps, faqs, contact } from '../data/site.js';
-import styles from './Application.module.css';
+import styles from './Careers.module.css';
 
-export default function Application() {
+export default function Careers() {
   useDocumentMeta({
-    title: 'Application',
+    title: 'Careers',
     description:
-      'Apply for care or join the Vitanova Health Care team. Complete our enquiry form online, or download and print our application form and email it back to us.',
-    path: '/application',
+      'Apply for care or join the Vitanova Health Care team. Submit an application online, or download and print our application form and email it back to us.',
+    path: '/careers',
   });
 
   return (
     <>
       <PageHero
-        eyebrow="Application"
+        eyebrow="Careers"
         title="Apply for care, or join our team"
         intro="Vitanova Health Care is a reliable and trustworthy health and social care provider. We work with clients and their families who require care in their own homes — from periodic check-ins to full live-in support — and we're committed to meeting all of your health and care needs."
         crumbs={[
           { label: 'Home', to: '/' },
-          { label: 'Application', to: '/application' },
+          { label: 'Careers', to: '/careers' },
         ]}
       />
 
@@ -52,10 +52,7 @@ export default function Application() {
       <section className={styles.applySection}>
         <div className={`container ${styles.applyGrid}`}>
           <div className={`${styles.formCard} reveal`}>
-            <EnquiryForm
-              heading="Apply online"
-              defaultSubject="Application enquiry"
-            />
+            <CareerApplicationForm />
           </div>
 
           <aside className={styles.altCol}>
@@ -77,7 +74,10 @@ export default function Application() {
                 <Icon name="download" size={18} />
                 Download &amp; print form
               </a>
-              <a className={styles.altLink} href={`mailto:${contact.email}?subject=Application%20form`}>
+              <a
+                className={styles.altLink}
+                href={`mailto:${contact.email}?subject=Application%20form`}
+              >
                 <Icon name="mail" size={18} />
                 Email your completed form
               </a>

@@ -30,7 +30,7 @@
   right: -80px;
   bottom: -140px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(29, 191, 115, 0.4), transparent 70%);
+  background: radial-gradient(circle, rgba(20, 184, 179, 0.4), transparent 70%);
   filter: blur(70px);
 }
 

@@ -43,7 +43,7 @@ export default function Home() {
               visits to full live-in support, with compassion and care.
             </p>
             <div className={styles.heroActions}>
-              <Button to="/application" variant="coral">
+              <Button to="/careers" variant="coral">
                 Apply Here
               </Button>
               <Button to="/services" variant="ghost-dark">
@@ -55,7 +55,7 @@ export default function Home() {
                 <Icon name="clock" size={18} /> 24-hour care available
               </li>
               <li>
-                <Icon name="pin" size={18} /> Based in Balbriggan, Co. Dublin
+                <Icon name="shield" size={18} /> Family-run &amp; trusted
               </li>
             </ul>
           </div>

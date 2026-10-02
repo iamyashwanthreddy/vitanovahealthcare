@@ -1,15 +1,20 @@
 /* ============================================================
    Vitanova Health Care — Design Tokens
-   Derived from the "Chat for impact" style reference (DESIGN.md).
-   Forest-green + pastel-room healthcare system, single DM Sans voice.
+   Derived from the "Chat for impact" style reference (DESIGN.md),
+   recoloured from the Vitanova logo: deep indigo (dominant wing)
+   + teal (complementary wing) in place of the original forest green.
+   Pastel-room healthcare system, single DM Sans voice.
    ============================================================ */
 
 :root {
-  /* -------- Brand / Core Colors -------- */
-  --color-canopy-green: #0a3922;
+  /* -------- Brand / Core Colors --------
+     --color-canopy-green and --color-leaf-bright keep their original
+     token names (used throughout the stylesheets) but now hold the
+     logo-derived indigo/teal values rather than green. */
+  --color-canopy-green: #241f5e; /* deep indigo — logo's dominant wing colour, darkened for UI */
   --color-coral-pulse: #ff643b;
   --color-indigo-bloom: #460095;
-  --color-leaf-bright: #1dbf73;
+  --color-leaf-bright: #14b8b3; /* teal — logo's complementary wing colour */
   --color-deep-teal: #003642;
   --color-orchid-tint: #f3b3fe;
   --color-sky-signal: #00b4dc;
@@ -25,11 +30,13 @@
   --color-frost-gray: #e0e0e0;
   --color-cloud-gray: #f2f2f2;
 
-  /* -------- Pastel Washes (feature-card rotation) -------- */
+  /* -------- Pastel Washes (feature-card rotation) --------
+     --color-mint-wash and --color-sage-wash were green-tinted; both now
+     hold logo-family (indigo / teal) tints instead. */
   --color-lavender-mist: #eee2ff;
-  --color-mint-wash: #d2f2e3;
+  --color-mint-wash: #e4e1f8; /* pale indigo tint, replaces green mint */
   --color-sky-wash: #ccf0f8;
-  --color-sage-wash: #e4f7ee;
+  --color-sage-wash: #dcf4f2; /* pale teal tint, replaces green sage */
   --color-lilac-wash: #fdf0ff;
   --color-peach-wash: #ffede8;
   --color-cream: #faf7e8;
@@ -40,10 +47,10 @@
   --text-secondary: #3d3d3d;
   --text-meta: #7a7a7a;
   --text-on-dark: #ffffff;
-  --text-on-dark-muted: #d2f2e3;
+  --text-on-dark-muted: #d6d2f2;
   --surface-page: #eee2ff;
   --surface-card: #ffffff;
-  --surface-dark: #0a3922;
+  --surface-dark: #241f5e;
   --border-hairline: #e0e0e0;
   --border-mid: #a6a6a6;
 
@@ -96,7 +103,7 @@
 
   /* -------- Elevation (used sparingly) -------- */
   --shadow-subtle: rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
-  --shadow-card: 0 24px 60px -32px rgba(10, 57, 34, 0.28);
+  --shadow-card: 0 24px 60px -32px rgba(36, 31, 94, 0.28);
 
   /* -------- Motion -------- */
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);

@@ -14,13 +14,6 @@ export const brand = {
 };
 
 export const contact = {
-  addressLines: [
-    '17 Taylor Hill Wood',
-    'Naul Road, Balbriggan',
-    'Co. Dublin, K32 AX50',
-  ],
-  addressInline: '17 Taylor Hill Wood, Naul Road, Balbriggan, Co. Dublin, K32 AX50',
-  region: 'County Dublin, Ireland',
   phones: [
     { label: 'Mobile', number: '089 455 9271', href: 'tel:+353894559271' },
     { label: 'Mobile', number: '083 301 3224', href: 'tel:+353833013224' },
@@ -49,7 +42,7 @@ export const nav = [
       { label: 'Homelessness', to: '/services/homelessness' },
     ],
   },
-  { label: 'Application', to: '/application' },
+  { label: 'Careers', to: '/careers' },
   { label: 'Contact', to: '/contact' },
 ];
 
@@ -240,7 +233,7 @@ export const homeHighlights = [
   },
 ];
 
-/* Steps for the Application page — reflects the source download/upload flow */
+/* Steps for the Careers page — reflects the source download/upload flow */
 export const applicationSteps = [
   {
     title: 'Download the form',
@@ -259,7 +252,7 @@ export const applicationSteps = [
 export const faqs = [
   {
     q: 'What areas do you cover?',
-    a: 'We are based in Balbriggan, Co. Dublin and deliver health and social care services nationwide across Ireland.',
+    a: 'We deliver health and social care services nationwide across Ireland.',
   },
   {
     q: 'What kind of care do you provide?',
@@ -271,6 +264,6 @@ export const faqs = [
   },
   {
     q: 'How do I apply for care or a role?',
-    a: 'Visit our Application page to download and complete our form, then email it back to us — or contact us directly and we will guide you through it.',
+    a: 'Visit our Careers page to download and complete our form, then email it back to us — or contact us directly and we will guide you through it.',
   },
 ];

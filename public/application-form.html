@@ -12,9 +12,9 @@
     />
     <style>
       :root {
-        --green: #0a3922;
+        --indigo: #241f5e;
         --coral: #ff643b;
-        --mint: #d2f2e3;
+        --mint: #e4e1f8;
         --gray: #e0e0e0;
         --ink: #3d3d3d;
       }
@@ -45,16 +45,16 @@
       }
       .top img { height: 52px; }
       .top .meta { text-align: right; font-size: 13px; color: var(--ink); }
-      h1 { font-size: 28px; letter-spacing: -0.02em; color: var(--green); margin: 28px 0 4px; }
+      h1 { font-size: 28px; letter-spacing: -0.02em; color: var(--indigo); margin: 28px 0 4px; }
       .tagline { color: var(--ink); margin: 0 0 24px; }
       h2 {
         font-size: 15px; text-transform: uppercase; letter-spacing: 0.06em;
-        color: var(--green); margin: 28px 0 12px;
+        color: var(--indigo); margin: 28px 0 12px;
       }
       .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 24px; }
       .field { display: flex; flex-direction: column; gap: 6px; }
       .field.full { grid-column: 1 / -1; }
-      label { font-size: 13px; font-weight: 600; color: var(--green); }
+      label { font-size: 13px; font-weight: 600; color: var(--indigo); }
       .line {
         border: 1px solid var(--gray); border-radius: 10px;
         height: 40px; background: #fafafa;
@@ -62,19 +62,19 @@
       .line.tall { height: 96px; }
       .choices { display: flex; gap: 20px; flex-wrap: wrap; font-size: 14px; }
       .choices span { display: inline-flex; align-items: center; gap: 8px; }
-      .box { width: 16px; height: 16px; border: 1.5px solid var(--green); border-radius: 4px; }
+      .box { width: 16px; height: 16px; border: 1.5px solid var(--indigo); border-radius: 4px; }
       .note {
         margin-top: 28px; padding: 16px 18px; background: var(--mint);
-        border-radius: 12px; font-size: 14px; color: var(--green);
+        border-radius: 12px; font-size: 14px; color: var(--indigo);
       }
-      .note a { color: var(--green); }
+      .note a { color: var(--indigo); }
       .actions { margin: 24px 0; }
       .btn {
         display: inline-flex; align-items: center; gap: 8px; cursor: pointer;
         background: var(--coral); color: #fff; border: none; font: inherit;
         font-weight: 600; padding: 12px 24px; border-radius: 40px; font-size: 15px;
       }
-      .back { margin-left: 16px; color: var(--green); font-weight: 600; text-decoration: none; }
+      .back { margin-left: 16px; color: var(--indigo); font-weight: 600; text-decoration: none; }
       footer { margin-top: 28px; border-top: 1px solid var(--gray); padding-top: 16px; font-size: 12px; color: #7a7a7a; }
       @media print {
         body { background: #fff; padding: 0; }
@@ -88,15 +88,13 @@
   <body>
     <div class="actions">
       <button class="btn" onclick="window.print()">Print / Save as PDF</button>
-      <a class="back" href="/application">← Back to website</a>
+      <a class="back" href="/careers">← Back to website</a>
     </div>
 
     <div class="sheet">
       <div class="top">
         <img src="/logo.png" alt="Vitanova Health Care" />
         <div class="meta">
-          17 Taylor Hill Wood, Naul Road<br />
-          Balbriggan, Co. Dublin, K32 AX50<br />
           089 455 9271 · info@vitanovahealthcare.com
         </div>
       </div>
@@ -131,7 +129,7 @@
         or call us on 089 455 9271. We&rsquo;ll be in touch to talk through the next steps.
       </div>
 
-      <footer>© Vitanova Health Care — County Dublin, Ireland.</footer>
+      <footer>© Vitanova Health Care.</footer>
     </div>
   </body>
 </html>
