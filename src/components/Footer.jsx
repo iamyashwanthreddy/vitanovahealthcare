@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import Icon from './Icon.jsx';
 import { brand, contact, nav } from '../data/site.js';
 import styles from './Footer.module.css';
 
@@ -67,9 +68,13 @@ export default function Footer() {
       </div>
 
       <div className={`container ${styles.bottom}`}>
-        <p>
+        <p className={styles.copyright}>
           © {year} {brand.name}. All rights reserved.
         </p>
+        <address className={styles.bottomAddress}>
+          <Icon name="pin" size={15} />
+          {contact.addressInline}
+        </address>
       </div>
     </footer>
   );

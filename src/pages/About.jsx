@@ -56,6 +56,14 @@ export default function About() {
               live-in support — and go above and beyond to make sure you or your
               family member gets the best care available, wherever you call home.
             </p>
+            <img
+              src="/images/about-caregiver.jpg"
+              alt="A Vitanova carer sharing a warm, relaxed conversation with a client at home."
+              className={styles.introImage}
+              width="1100"
+              height="733"
+              loading="lazy"
+            />
           </div>
         </div>
       </section>

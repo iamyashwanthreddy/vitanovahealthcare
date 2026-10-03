@@ -11,10 +11,38 @@
   padding-block: clamp(56px, 8vw, 104px);
 }
 
+.heroBg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 30% 22%;
+  z-index: 0;
+}
+
+/* Brand-colour gradient over the photo: strong on the left where the
+   heading sits, lighter on the right so the photo still reads through
+   behind the floating stat cards. Guarantees text contrast regardless
+   of the photo's own composition. */
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    100deg,
+    rgba(36, 31, 94, 0.95) 0%,
+    rgba(36, 31, 94, 0.88) 32%,
+    rgba(36, 31, 94, 0.62) 60%,
+    rgba(36, 31, 94, 0.42) 100%
+  );
+}
+
 .hero::before,
 .hero::after {
   content: '';
   position: absolute;
+  z-index: 1;
   border-radius: 50%;
   filter: blur(90px);
   pointer-events: none;
@@ -36,11 +64,25 @@
 
 .heroInner {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--space-48);
   align-items: center;
+}
+
+@media (max-width: 700px) {
+  .heroBg {
+    object-position: 28% 14%;
+  }
+  .heroOverlay {
+    background: linear-gradient(
+      180deg,
+      rgba(36, 31, 94, 0.9) 0%,
+      rgba(36, 31, 94, 0.88) 55%,
+      rgba(36, 31, 94, 0.78) 100%
+    );
+  }
 }
 
 .heroEyebrow {

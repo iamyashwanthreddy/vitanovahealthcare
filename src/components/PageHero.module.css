@@ -6,6 +6,46 @@
   padding-block: clamp(56px, 9vw, 112px);
 }
 
+/* -------- Optional cover photo (service pages) -------- */
+.heroImg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  z-index: 0;
+}
+
+.heroImgOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    100deg,
+    rgba(36, 31, 94, 0.94) 0%,
+    rgba(36, 31, 94, 0.86) 36%,
+    rgba(36, 31, 94, 0.58) 65%,
+    rgba(36, 31, 94, 0.38) 100%
+  );
+}
+
+.hasImage :global(.container) {
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 700px) {
+  .heroImgOverlay {
+    background: linear-gradient(
+      180deg,
+      rgba(36, 31, 94, 0.9) 0%,
+      rgba(36, 31, 94, 0.88) 55%,
+      rgba(36, 31, 94, 0.8) 100%
+    );
+  }
+}
+
 .crumbs {
   margin-bottom: var(--space-24);
 }
@@ -72,6 +112,7 @@
 .glowOne,
 .glowTwo {
   position: absolute;
+  z-index: 1;
   border-radius: 50%;
   filter: blur(70px);
   opacity: 0.5;

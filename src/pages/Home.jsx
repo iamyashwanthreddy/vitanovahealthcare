@@ -27,6 +27,15 @@ export default function Home() {
     <>
       {/* ---------- Hero ---------- */}
       <section className={styles.hero}>
+        <img
+          src="/images/hero-home-care.jpg"
+          alt=""
+          className={styles.heroBg}
+          width="1920"
+          height="1280"
+          fetchpriority="high"
+        />
+        <div className={styles.heroOverlay} aria-hidden="true" />
         <div className={`container ${styles.heroInner}`}>
           <div className={styles.heroText}>
             <span className={styles.heroEyebrow}>

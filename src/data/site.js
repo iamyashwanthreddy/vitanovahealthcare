@@ -14,6 +14,15 @@ export const brand = {
 };
 
 export const contact = {
+  addressLines: [
+    'Office 1C North Valley Business Centre',
+    'Old Mallow Road',
+    'Cork',
+    'T23 WN15',
+  ],
+  addressInline: 'Office 1C North Valley Business Centre, Old Mallow Road, Cork, T23 WN15',
+  mapsUrl:
+    'https://www.google.com/maps/search/?api=1&query=Office+1C+North+Valley+Business+Centre%2C+Old+Mallow+Road%2C+Cork%2C+T23+WN15',
   phones: [
     { label: 'Mobile', number: '089 455 9271', href: 'tel:+353894559271' },
     { label: 'Mobile', number: '083 301 3224', href: 'tel:+353833013224' },
@@ -61,6 +70,9 @@ export const services = [
     slug: '24-hour-care',
     title: '24 Hour Health Care',
     pastel: 'mint',
+    image: '/images/service-24-hour-care.jpg',
+    imageAlt:
+      'A carer and family member assisting an older man as he walks across his living room at home.',
     summary:
       'Round-the-clock care so clients can feel confident their health matters are addressed in a timely manner — without sacrificing their normal daily routines.',
     intro:
@@ -94,6 +106,8 @@ export const services = [
     slug: 'home-services',
     title: 'Home Services',
     pastel: 'sky',
+    image: '/images/service-home-services.jpg',
+    imageAlt: 'Two older adults sharing coffee and conversation in a bright home living room.',
     summary:
       'Companionship and everyday home support that helps people stay comfortable, connected and independent in the place they know best.',
     intro:
@@ -117,6 +131,8 @@ export const services = [
     slug: 'general-care',
     title: 'General Care',
     pastel: 'sage',
+    image: '/images/service-general-care.jpg',
+    imageAlt: 'A carer helping an older man with his daily medication at the kitchen table.',
     summary:
       'A broad range of person-centred care, from daily support to specialist live-in and palliative care for you or your loved ones.',
     intro:
@@ -142,6 +158,8 @@ export const services = [
     slug: 'care-support',
     title: 'Care Support',
     pastel: 'lilac',
+    image: '/images/service-care-support.jpg',
+    imageAlt: 'A support worker having a gentle, supportive conversation with a young girl.',
     summary:
       'Tailored care support for individuals, families, young people and children under the age of 18.',
     intro:
@@ -167,6 +185,9 @@ export const services = [
     slug: 'homelessness',
     title: 'Homelessness',
     pastel: 'peach',
+    image: '/images/service-homelessness.jpg',
+    imageAlt:
+      'A support worker talking through paperwork with a couple at their kitchen table.',
     summary:
       'Low-threshold, specialist support for people experiencing homelessness — because we are committed to ending homelessness and changing lives.',
     intro:

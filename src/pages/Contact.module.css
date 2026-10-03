@@ -39,6 +39,28 @@
   margin-bottom: var(--space-8);
 }
 
+.address {
+  font-style: normal;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  color: var(--color-graphite);
+  line-height: 1.5;
+}
+
+.directions {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: var(--space-12);
+  font-size: var(--text-body-sm);
+  font-weight: var(--fw-semibold);
+  color: var(--color-indigo-bloom);
+}
+.directions:hover {
+  text-decoration: underline;
+}
+
 .contactList {
   display: flex;
   flex-direction: column;

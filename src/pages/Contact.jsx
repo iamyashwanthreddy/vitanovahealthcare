@@ -31,6 +31,29 @@ export default function Contact() {
           <div className={styles.details}>
             <div className={styles.detailCard}>
               <span className={styles.detailIcon}>
+                <Icon name="pin" size={22} />
+              </span>
+              <div>
+                <h3>Our location</h3>
+                <address className={styles.address}>
+                  {contact.addressLines.map((l) => (
+                    <span key={l}>{l}</span>
+                  ))}
+                </address>
+                <a
+                  className={styles.directions}
+                  href={contact.mapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Icon name="compass" size={16} />
+                  Get directions
+                </a>
+              </div>
+            </div>
+
+            <div className={styles.detailCard}>
+              <span className={styles.detailIcon}>
                 <Icon name="phone" size={22} />
               </span>
               <div>

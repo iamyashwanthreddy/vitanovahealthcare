@@ -98,12 +98,31 @@
 .bottom {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-12);
+  justify-content: space-between;
+  gap: var(--space-12) var(--space-32);
   align-items: center;
   padding-block: var(--space-32);
   border-top: 1px solid rgba(255, 255, 255, 0.14);
   font-size: var(--text-body-sm);
   color: rgba(255, 255, 255, 0.65);
+}
+
+.copyright {
+  margin: 0;
+}
+
+.bottomAddress {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-8);
+  font-style: normal;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.bottomAddress svg {
+  flex-shrink: 0;
+  color: var(--color-leaf-bright);
 }
 
 @media (min-width: 700px) {

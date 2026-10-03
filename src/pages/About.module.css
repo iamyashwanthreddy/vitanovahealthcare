@@ -12,6 +12,15 @@
   line-height: 1.65;
 }
 
+.introImage {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: var(--radius-card);
+  margin-top: var(--space-4);
+}
+
 /* Mission statement banner */
 .statement {
   position: relative;

@@ -31,6 +31,8 @@ export default function ServiceDetail() {
         eyebrow={service.kicker || 'Service'}
         title={service.title}
         intro={service.intro}
+        image={service.image}
+        imageAlt={service.imageAlt}
         crumbs={[
           { label: 'Home', to: '/' },
           { label: 'Services', to: '/services' },
