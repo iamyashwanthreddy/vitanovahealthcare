@@ -28,8 +28,8 @@ export default function Home() {
       {/* ---------- Hero ---------- */}
       <section className={styles.hero}>
         <img
-          src="/images/hero-home-care.jpg"
-          alt=""
+          src="/images/hero1.jpeg"
+          alt=""  
           className={styles.heroBg}
           width="1920"
           height="1280"
