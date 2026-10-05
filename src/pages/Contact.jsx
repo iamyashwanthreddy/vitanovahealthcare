@@ -78,7 +78,7 @@ export default function Contact() {
                 <a className={styles.email} href={`mailto:${contact.email}`}>
                   {contact.email}
                 </a>
-                <ul className={styles.socials} aria-label="Social media">
+                {/* <ul className={styles.socials} aria-label="Social media">
                   {contact.socials.map((s) => (
                     <li key={s.label}>
                       <a href={s.href} target="_blank" rel="noopener noreferrer">
@@ -86,7 +86,7 @@ export default function Contact() {
                       </a>
                     </li>
                   ))}
-                </ul>
+                </ul> */}
               </div>
             </div>
           </div>

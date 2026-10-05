@@ -16,7 +16,7 @@ export default function Footer() {
             <img src="/logo.png" alt={`${brand.name} logo`} width="180" height="86" />
           </span>
           <p className={styles.tagline}>{brand.tagline}.</p>
-          <ul className={styles.socials} aria-label="Social media">
+          {/* <ul className={styles.socials} aria-label="Social media">
             {contact.socials.map((s) => (
               <li key={s.label}>
                 <a href={s.href} target="_blank" rel="noopener noreferrer">
@@ -24,7 +24,7 @@ export default function Footer() {
                 </a>
               </li>
             ))}
-          </ul>
+          </ul> */}
         </div>
 
         <nav className={styles.linkCol} aria-label="Footer — explore">
