@@ -216,7 +216,8 @@
 
 .floatCard {
   position: absolute;
-  background: var(--color-paper-white);
+  background: color-mix(in srgb, var(--color-paper-white) 55%, transparent);
+  backdrop-filter: blur(4px);
   border-radius: var(--radius-card-sm);
   padding: var(--space-16);
   display: flex;
@@ -227,7 +228,7 @@
 }
 
 .floatCard svg {
-  color: var(--color-coral-pulse);
+  color: var(--color-canopy-green);
   margin-bottom: 4px;
 }
 
@@ -240,23 +241,24 @@
 
 .floatCard small {
   font-size: var(--text-caption);
-  color: var(--color-slate);
+  color: var(--color-canopy-green);
+  font-weight: var(--fw-semibold);
 }
 
 .floatOne {
-  top: -18px;
-  right: 4px;
+  top: -56px;
+  right: -16px;
 }
 .floatOne svg {
-  color: var(--color-leaf-bright);
+  color: var(--color-canopy-green);
 }
 
 .floatTwo {
-  bottom: -20px;
-  left: 0;
+  bottom: -56px;
+  left: -16px;
 }
 .floatTwo svg {
-  color: var(--color-sky-signal);
+  color: var(--color-deep-teal);
 }
 
 /* ---------- Highlights ---------- */
