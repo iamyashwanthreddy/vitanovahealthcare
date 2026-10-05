@@ -148,8 +148,10 @@
 }
 
 .visualCard {
-  background: var(--color-paper-white);
-  color: var(--color-canopy-green);
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(6px);
+  border: 1.5px solid rgba(255, 255, 255, 0.55);
+  color: var(--color-paper-white);
   border-radius: var(--radius-card);
   padding: var(--space-32);
   max-width: 400px;
@@ -174,7 +176,7 @@
   font-weight: var(--fw-medium);
   line-height: 1.3;
   letter-spacing: -0.01em;
-  color: var(--color-canopy-green);
+  color: var(--color-paper-white);
 }
 
 .visualList {
@@ -189,7 +191,7 @@
   align-items: center;
   gap: var(--space-12);
   font-size: var(--text-body-sm);
-  color: var(--color-graphite);
+  color: var(--color-paper-white);
 }
 
 .visualDot {
