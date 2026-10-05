@@ -16,13 +16,15 @@ const initial = {
 
 /**
  * Accessible enquiry form with client-side validation.
- * On submit it composes a mailto: message to the Vitanova inbox — it does NOT
- * post to a backend, and the UI states this clearly.
+ * On submit it posts to /api/contact (see /api/contact.js and
+ * /netlify/functions/contact.js), which emails the Vitanova inbox. Success is
+ * only shown once the server confirms the email was sent.
  */
 export default function EnquiryForm({ heading, defaultSubject = '' }) {
   const [values, setValues] = useState({ ...initial, subject: defaultSubject });
   const [errors, setErrors] = useState({});
-  const [sent, setSent] = useState(false);
+  const [status, setStatus] = useState('idle'); // idle | submitting | success | error
+  const [serverError, setServerError] = useState('');
 
   const update = (e) => {
     const { name, value } = e.target;
@@ -40,7 +42,7 @@ export default function EnquiryForm({ heading, defaultSubject = '' }) {
     return next;
   };
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
     const next = validate();
     setErrors(next);
@@ -49,40 +51,60 @@ export default function EnquiryForm({ heading, defaultSubject = '' }) {
       if (firstError) firstError.focus();
       return;
     }
-    const subject = values.subject || 'Website enquiry';
-    const body = [
-      `Name: ${values.firstName} ${values.lastName}`,
-      `Email: ${values.email}`,
-      values.phone ? `Phone: ${values.phone}` : null,
-      '',
-      values.message,
-    ]
-      .filter(Boolean)
-      .join('\n');
-    window.location.href = `mailto:${contact.email}?subject=${encodeURIComponent(
-      subject
-    )}&body=${encodeURIComponent(body)}`;
-    setSent(true);
+
+    setStatus('submitting');
+    setServerError('');
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(values),
+      });
+      let data = null;
+      try {
+        data = await res.json();
+      } catch {
+        data = null;
+      }
+      if (res.ok && data?.success === true) {
+        setStatus('success');
+        return;
+      }
+      if (data?.errors && typeof data.errors === 'object') {
+        setErrors((er) => ({ ...er, ...data.errors }));
+        setStatus('idle');
+        return;
+      }
+      setServerError(
+        data?.error ||
+          `We could not send your message right now. Please try again, or email ${contact.email}.`
+      );
+      setStatus('error');
+    } catch {
+      setServerError(
+        `We could not reach our server. Please check your connection and try again, or email ${contact.email}.`
+      );
+      setStatus('error');
+    }
   };
 
-  if (sent) {
+  if (status === 'success') {
     return (
       <div className={styles.success} role="status">
         <span className={styles.successIcon}>
           <Icon name="check" size={28} />
         </span>
-        <h3>Thanks — your email is ready to send</h3>
+        <h3>Message sent</h3>
         <p>
-          We&rsquo;ve opened your email app with your message to{' '}
-          <a href={`mailto:${contact.email}`}>{contact.email}</a>. Just press send
-          and our team will be in touch. Prefer to call? {contact.phones[0].number}.
+          Thanks, {values.firstName} — your message has been sent to our team and
+          we&rsquo;ll be in touch soon. Prefer to call? {contact.phones[0].number}.
         </p>
         <button
           type="button"
           className={styles.reset}
           onClick={() => {
             setValues({ ...initial, subject: defaultSubject });
-            setSent(false);
+            setStatus('idle');
           }}
         >
           Send another message
@@ -91,13 +113,20 @@ export default function EnquiryForm({ heading, defaultSubject = '' }) {
     );
   }
 
+  const submitting = status === 'submitting';
+
   return (
     <form className={styles.form} onSubmit={onSubmit} noValidate>
       {heading && <h3 className={styles.formHeading}>{heading}</h3>}
       <p className={styles.note}>
-        Fields marked <span aria-hidden="true">*</span> are required. Submitting
-        opens your email app with the details pre-filled.
+        Fields marked <span aria-hidden="true">*</span> are required.
       </p>
+
+      {status === 'error' && (
+        <div className={styles.banner} role="alert">
+          {serverError}
+        </div>
+      )}
 
       <div className={styles.row}>
         <Field
@@ -158,9 +187,9 @@ export default function EnquiryForm({ heading, defaultSubject = '' }) {
         textarea
       />
 
-      <button type="submit" className={styles.submit}>
-        Send message
-        <Icon name="arrow" size={18} />
+      <button type="submit" className={styles.submit} disabled={submitting}>
+        {submitting ? 'Sending…' : 'Send message'}
+        {!submitting && <Icon name="arrow" size={18} />}
       </button>
     </form>
   );

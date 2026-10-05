@@ -112,7 +112,9 @@ export async function sendApplicationEmail({ fields, cv }) {
     from,
     to: [to],
     reply_to: fields.email,
-    subject: 'New Job Application – Vitanova Health Care',
+    subject: `New Job Application – ${fields.firstName} ${fields.lastName}${
+      fields.position ? ` (${fields.position})` : ''
+    }${cv ? ' – CV attached' : ''}`,
     html,
     text,
   };
@@ -126,6 +128,80 @@ export async function sendApplicationEmail({ fields, cv }) {
     ];
   }
 
+  return postToResend(apiKey, payload);
+}
+
+/** Validates the Contact page enquiry fields. */
+export function validateEnquiry(fields = {}) {
+  const errors = {};
+  if (!fields.firstName?.trim()) errors.firstName = 'First name is required.';
+  if (!fields.lastName?.trim()) errors.lastName = 'Last name is required.';
+  if (!fields.email?.trim() || !EMAIL_RE.test(fields.email.trim())) {
+    errors.email = 'A valid email address is required.';
+  }
+  if (!fields.message?.trim()) errors.message = 'Please tell us how we can help.';
+  return errors;
+}
+
+/** Sends a Contact page enquiry to the same inbox, with its own subject. */
+export async function sendEnquiryEmail({ fields }) {
+  const apiKey = process.env.RESEND_API_KEY;
+  if (!apiKey) {
+    throw new Error(
+      'Email service is not configured on the server (missing RESEND_API_KEY). The message was not sent.'
+    );
+  }
+  const to = process.env.APPLICATIONS_TO_EMAIL || 'applications@vitanovahealthcare.ie';
+  const from =
+    process.env.APPLICATIONS_FROM_EMAIL || 'Vitanova Health Care <onboarding@resend.dev>';
+  const name = `${fields.firstName} ${fields.lastName}`.trim();
+  const rows = [
+    ['Name', name],
+    ['Email', fields.email],
+    ['Phone', fields.phone || '—'],
+    ['Subject', fields.subject || '—'],
+    [
+      'Submitted',
+      new Date().toLocaleString('en-IE', { dateStyle: 'full', timeStyle: 'short' }),
+    ],
+  ];
+  const html = `
+    <h2 style="font-family:sans-serif;color:#241f5e;margin:0 0 16px">New Website Enquiry</h2>
+    <table cellpadding="6" cellspacing="0" style="font-family:sans-serif;font-size:14px;border-collapse:collapse">
+      ${rows
+        .map(
+          ([k, v]) =>
+            `<tr><td style="font-weight:600;color:#241f5e;vertical-align:top">${k}</td><td>${escapeHtml(
+              v
+            )}</td></tr>`
+        )
+        .join('')}
+    </table>
+    <h3 style="font-family:sans-serif;color:#241f5e;margin:20px 0 8px">Message</h3>
+    <p style="font-family:sans-serif;font-size:14px;white-space:pre-wrap">${escapeHtml(
+      fields.message
+    )}</p>
+  `;
+  const text = [
+    'New Website Enquiry — Vitanova Health Care',
+    '',
+    ...rows.map(([k, v]) => `${k}: ${v}`),
+    '',
+    'Message:',
+    fields.message,
+  ].join('\n');
+
+  return postToResend(apiKey, {
+    from,
+    to: [to],
+    reply_to: fields.email,
+    subject: `New Website Enquiry – ${name}`,
+    html,
+    text,
+  });
+}
+
+async function postToResend(apiKey, payload) {
   const res = await fetch(RESEND_ENDPOINT, {
     method: 'POST',
     headers: {

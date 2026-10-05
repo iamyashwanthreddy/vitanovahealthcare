@@ -146,3 +146,13 @@ textarea.input {
     grid-template-columns: 1fr 1fr;
   }
 }
+
+.banner {
+  padding: var(--space-16) var(--space-20);
+  border-radius: var(--radius-card-sm);
+  background: var(--color-peach-wash);
+  color: var(--color-aubergine);
+  font-size: var(--text-body-sm);
+  font-weight: var(--fw-medium);
+  line-height: 1.5;
+}

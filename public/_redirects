@@ -4,6 +4,7 @@
 # Proxy the Careers form's API calls to the Netlify Function of the same name
 # (keeps the frontend's fetch('/api/apply') identical across Netlify & Vercel)
 /api/apply  /.netlify/functions/apply  200
+/api/contact  /.netlify/functions/contact  200
 
 # Netlify SPA fallback — every route serves index.html so deep links & refreshes work
 /*  /index.html  200
