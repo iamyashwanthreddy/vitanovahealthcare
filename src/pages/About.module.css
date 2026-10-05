@@ -121,6 +121,16 @@
   gap: var(--space-48);
 }
 
+.valuesImage {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: var(--radius-card);
+  margin-top: var(--space-24);
+}
+
 .valueGrid {
   display: grid;
   grid-template-columns: 1fr;

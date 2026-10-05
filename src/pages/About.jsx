@@ -57,8 +57,8 @@ export default function About() {
               family member gets the best care available, wherever you call home.
             </p>
             <img
-              src="/images/about-caregiver.jpg"
-              alt="A Vitanova carer sharing a warm, relaxed conversation with a client at home."
+              src="/images/care.jpg"
+              alt="A young carer preparing a meal alongside an older client in his home kitchen."
               className={styles.introImage}
               width="1100"
               height="733"
@@ -121,6 +121,14 @@ export default function About() {
                 These values guide how our nurses, healthcare assistants, support
                 workers and specialist carers show up for the people we serve.
               </p>
+              <img
+                src="/images/caregive.jpg"
+                alt="A support worker and a family member helping an older man use a tablet together at home."
+                className={styles.valuesImage}
+                width="1100"
+                height="733"
+                loading="lazy"
+              />
             </div>
             <ul className={styles.valueGrid}>
               {about.values.map((v, i) => (

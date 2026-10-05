@@ -24,9 +24,7 @@ export const contact = {
   mapsUrl:
     'https://www.google.com/maps/search/?api=1&query=Office+1C+North+Valley+Business+Centre%2C+Old+Mallow+Road%2C+Cork%2C+T23+WN15',
   phones: [
-    { label: 'Mobile', number: '089 455 9271', href: 'tel:+353894559271' },
-    { label: 'Mobile', number: '083 301 3224', href: 'tel:+353833013224' },
-    { label: 'Office', number: '01 969 3318', href: 'tel:+35319693318' },
+    { label: 'Mobile', number: '+353 89 480 8783', href: 'tel:+353894808783' },
   ],
   email: 'info@vitanovahealthcare.com',
   socials: [
