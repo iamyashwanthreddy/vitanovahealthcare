@@ -80,6 +80,28 @@ to that host's serverless/function format (it only depends on `server/`, which
 is plain Node). Update the domain in `public/sitemap.xml` and
 `public/robots.txt` to the production URL before launch.
 
+### Hostinger (shared hosting, Apache/LiteSpeed)
+
+1. Run `npm run package:hostinger`. It builds the site and creates
+   `vitanova-hostinger.zip` from the *contents* of `dist/`.
+2. In hPanel → File Manager → `public_html`, delete the placeholder
+   `default.php` (and any old files), upload the zip and **Extract** it so
+   that `index.html`, `.htaccess`, `assets/` and `api/` sit directly inside
+   `public_html` (not in a subfolder). Enable "show hidden files" to confirm
+   `.htaccess` is there.
+3. Open `public_html/api/config.php` and set the recipient/sender addresses.
+4. Once SSL is active (hPanel → Security → SSL), uncomment the HTTPS redirect
+   lines in `.htaccess`.
+
+`public/.htaccess` provides the SPA fallback, `/application` → `/careers`
+redirect, caching and compression. On this host the forms are handled by
+`public/api/apply.php` and `public/api/contact.php` (PHP `mail()`, no API key
+needed); Resend and the Node functions are only used on Vercel/Netlify.
+
+**Blank white page?** It means the browser could not load `/assets/*.js`.
+Either the project root (not `dist/`) was uploaded, the files are in a
+subfolder, or `.htaccess`/`index.html` are missing from `public_html`.
+
 ## Careers application emails
 
 Submitting the Careers page form (`/careers`) posts to `/api/apply`, a

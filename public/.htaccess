@@ -1,0 +1,76 @@
+# Hostinger (Apache / LiteSpeed) configuration for the Vitanova React SPA.
+# Vite copies this file into dist/ on build — upload it with the rest of dist/.
+
+Options -Indexes -MultiViews
+
+# Hostinger puts a placeholder default.php in public_html. Listing index.html
+# first makes sure the site wins even if that file is still there.
+DirectoryIndex index.html index.php
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # --- Force HTTPS -----------------------------------------------------------
+  # Uncomment these 3 lines AFTER the free SSL certificate is active in
+  # hPanel → Security → SSL (otherwise the site becomes unreachable).
+  # RewriteCond %{HTTPS} !=on
+  # RewriteCond %{HTTP:X-Forwarded-Proto} !=https
+  # RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # --- Old Careers URL -------------------------------------------------------
+  RewriteRule ^application/?$ /careers [R=301,L]
+
+  # --- Form endpoints --------------------------------------------------------
+  # The React forms POST to /api/apply and /api/contact; on Hostinger these are
+  # PHP scripts (see api/*.php).
+  RewriteRule ^api/apply/?$ api/apply.php [L,QSA]
+  RewriteRule ^api/contact/?$ api/contact.php [L,QSA]
+
+  # --- SPA fallback ----------------------------------------------------------
+  # Real files and folders are served as-is.
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # A missing asset should be a real 404, not index.html (which would show up as
+  # a "wrong MIME type" error and a blank page).
+  RewriteRule ^(assets|images)/ - [L]
+
+  # Everything else (/about, /services/home-services, …) is a React route.
+  RewriteRule ^ index.html [L]
+</IfModule>
+
+# --- MIME types (some servers omit these, which blocks module scripts) --------
+<IfModule mod_mime.c>
+  AddType application/javascript .js .mjs
+  AddType text/css .css
+  AddType image/svg+xml .svg
+  AddType image/webp .webp
+  AddType font/woff2 .woff2
+</IfModule>
+
+# --- Compression --------------------------------------------------------------
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml application/javascript application/json image/svg+xml
+</IfModule>
+
+# --- Caching ------------------------------------------------------------------
+# Files in /assets have content hashes in their names, so they are safe to cache
+# for a year. index.html must never be cached or visitors keep loading old JS.
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 month"
+  ExpiresByType image/png "access plus 1 month"
+  ExpiresByType image/webp "access plus 1 month"
+  ExpiresByType image/svg+xml "access plus 1 month"
+</IfModule>
+
+# --- Security headers ---------------------------------------------------------
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
