@@ -42,16 +42,29 @@ DirectoryIndex index.html index.php
 
 # --- MIME types (some servers omit these, which blocks module scripts) --------
 <IfModule mod_mime.c>
-  AddType application/javascript .js .mjs
+  AddType text/javascript .js .mjs
   AddType text/css .css
   AddType image/svg+xml .svg
   AddType image/webp .webp
   AddType font/woff2 .woff2
 </IfModule>
 
+# Belt and braces: force the type even if the server has its own mapping that
+# says .js is text/plain (this is what causes the "MIME type of text/plain"
+# blank-page error).
+<FilesMatch "\.(js|mjs)$">
+  ForceType text/javascript
+  <IfModule mod_headers.c>
+    Header set Content-Type "text/javascript; charset=utf-8"
+  </IfModule>
+</FilesMatch>
+<FilesMatch "\.css$">
+  ForceType text/css
+</FilesMatch>
+
 # --- Compression --------------------------------------------------------------
 <IfModule mod_deflate.c>
-  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml application/javascript application/json image/svg+xml
+  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml text/javascript application/javascript application/json image/svg+xml
 </IfModule>
 
 # --- Caching ------------------------------------------------------------------
@@ -61,6 +74,7 @@ DirectoryIndex index.html index.php
   ExpiresActive On
   ExpiresByType text/html "access plus 0 seconds"
   ExpiresByType text/css "access plus 1 year"
+  ExpiresByType text/javascript "access plus 1 year"
   ExpiresByType application/javascript "access plus 1 year"
   ExpiresByType image/jpeg "access plus 1 month"
   ExpiresByType image/png "access plus 1 month"
